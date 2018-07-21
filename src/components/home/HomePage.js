@@ -30,7 +30,7 @@ class HomePage extends React.Component {
 
               <div className="form-group row justify-content-end">
                 <div className="col-6 col-sm-5">
-                  <div id="singupBtn" className="btn btn-primary btn-medium">Signup</div>
+                  <Link to="signup" id="singupBtn" className="btn btn-primary btn-medium">Signup</Link>
                 </div>
                 <div className="col-6 offset-sm-2 col-sm-5">
                   <div id="loginBtn" className="btn btn-primary btn-medium">Login</div>

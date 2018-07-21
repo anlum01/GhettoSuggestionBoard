@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './components/App';
 import HomePage from './components/home/HomePage';
+import RegisterPage from './components/register/RegisterPage';
+
 import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-disable-line import/no-named-as-default
@@ -9,6 +11,7 @@ import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-di
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
+    <Route path="signup" component={RegisterPage} />
     <Route path="courses" component={CoursesPage} />
     <Route path="course" component={ManageCoursePage} />
     <Route path="course/:id" component={ManageCoursePage} />
