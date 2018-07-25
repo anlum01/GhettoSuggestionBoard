@@ -11,13 +11,17 @@ import {Link, browserHistory} from 'react-router';
 class Scard extends React.Component{
     constructor(props){
         //Default states
+        super(props);
+        console.log("hello inside ctor")
         this.state = {
             str_card_img_url:this.props.str_card_img_url,
             str_card_title:this.props.str_card_title,
             str_card_text:this.props.str_card_text,
             int_upvote:this.props.int_upvote,
-            int_downvote:this.props.int_downvote,   
+            int_downvote:this.props.int_downvote 
         }
+        console.log("setted states")
+        console.log(this.state.int_upvote);
         //Bind functions to the Component
         this.handleUp = this.handleUp.bind(this);
         this.handleDown = this.handleDown.bind(this);
@@ -25,27 +29,29 @@ class Scard extends React.Component{
 
     //Event handler when user hits the upvote button
     handleUp(event){
-        let newVal = this.int_upvote+1;
+        let newVal = this.state.int_upvote+1;
         this.setState({"int_upvote":newVal});
     }
 
     //Event handler when user hits the downvote button
     handleDown(event){
-        let newVal = this.int_downvote+1;
+        let newVal = this.state.int_downvote+1;
         this.setState({"int_downvote":newVal})
     }
 
     //This function renders the suggestion card component
     render(){
-        let str1 = "Yes " + this.int_upvote;
-        let str2 = "No " + this.int_downvote;
+        console.log(this.state.str_card_title);
+        console.log(this.props);
+        let str1 = "Yes " + this.state.int_upvote;
+        let str2 = "No " + this.state.int_downvote;
         return (
             <div>
                 <Card>
                     <CardImg top width="100%" src={this.state.str_card_img_url}></CardImg>
                     <CardBody>
-                        <CardTitle>{this.str_card_title}</CardTitle>
-                        <CardText>{this.str_card_text}</CardText>
+                        <CardTitle>{this.state.str_card_title}</CardTitle>
+                        <CardText>{this.state.str_card_text}</CardText>
                         <Button color="primary" onClick={this.handleUp}>{str1}</Button>{' '}
                         <Button color="danger" onClick={this.handleDown}>{str2}</Button>
                     </CardBody>
