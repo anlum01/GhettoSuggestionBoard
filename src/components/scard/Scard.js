@@ -12,16 +12,18 @@ class Scard extends React.Component{
     constructor(props){
         //Default states
         super(props);
-        console.log("hello inside ctor")
+
+        this.console.log("hello inside ctor");
         this.state = {
             str_card_img_url:this.props.str_card_img_url,
             str_card_title:this.props.str_card_title,
             str_card_text:this.props.str_card_text,
             int_upvote:this.props.int_upvote,
-            int_downvote:this.props.int_downvote 
-        }
-        console.log("setted states")
-        console.log(this.state.int_upvote);
+            int_downvote:this.props.int_downvote
+        };
+
+        this.console.log("setted states")
+        this.console.log(this.state.int_upvote);
         //Bind functions to the Component
         this.handleUp = this.handleUp.bind(this);
         this.handleDown = this.handleDown.bind(this);
@@ -36,19 +38,19 @@ class Scard extends React.Component{
     //Event handler when user hits the downvote button
     handleDown(event){
         let newVal = this.state.int_downvote+1;
-        this.setState({"int_downvote":newVal})
+        this.setState({"int_downvote":newVal});
     }
 
     //This function renders the suggestion card component
     render(){
-        console.log(this.state.str_card_title);
-        console.log(this.props);
+        this.console.log(this.state.str_card_title);
+        this.console.log(this.props);
         let str1 = "Yes " + this.state.int_upvote;
         let str2 = "No " + this.state.int_downvote;
         return (
             <div>
                 <Card>
-                    <CardImg top width="100%" src={this.state.str_card_img_url}></CardImg>
+                    <CardImg top width="100%" src={this.state.str_card_img_url}/>
                     <CardBody>
                         <CardTitle>{this.state.str_card_title}</CardTitle>
                         <CardText>{this.state.str_card_text}</CardText>
@@ -57,7 +59,7 @@ class Scard extends React.Component{
                     </CardBody>
                 </Card>
             </div>
-        )
+        );
     }
 
 }
