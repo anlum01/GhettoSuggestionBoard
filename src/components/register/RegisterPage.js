@@ -2,6 +2,11 @@ import React from 'react';
 import { auth } from '../../firebase/firebase';
 import './RegisterPage.css';
 
+const byPropKeys = (propertyName, value) => ({
+  [propertyName]: value
+});
+
+
 class RegisterPage extends React.Component {
 
   constructor(props) {
@@ -16,18 +21,24 @@ class RegisterPage extends React.Component {
       error: null
     };
 
+    this.onSubmit = this.onSubmit.bind(this);
+
   }
 
   onSubmit(event) {
+
+    event.preventDefault();
+
     const {
       email,
       password
     } = this.state;
 
-    auth.createUserWithEmailAndPassword(email, password).then()
+    auth.createUserWithEmailAndPassword(email, password).then(
+      authUser => {}
+    )
     .catch( error => this.setState({error}));
 
-    event.preventDefault();
   }
 
 
@@ -45,30 +56,30 @@ class RegisterPage extends React.Component {
     <div className="jumbotron">
       <div className="container">
         <div className="row">
-          <div className="col-sm-offset-3 col-sm-6">
-            <form>
-              <div className="form-group row" onSubmit={this.onSubmit}>
+          <div className="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6">
+            <form onSubmit={this.onSubmit}>
+              <div className="form-group row">
                 <input className="form-control" type="email" placeholder="Enter Email"
-                  value={email} onChange={this.setState({'email': event.target.value })} />
+                  value={email} onChange={e => this.setState(byPropKeys('email', e.target.value))} />
               </div>
               <div className="form-group row">
                 <input className="form-control" type="text" placeholder="First Name"
-                  value={firstName} onChange={this.setState({'firstName': event.target.value})} />
+                  value={firstName} onChange={e => this.setState(byPropKeys('firstName', e.target.value))} />
               </div>
               <div className="form-group row">
                 <input className="form-control" type="text" placeholder="Last Name"
-                  value={lastName} onChange={this.setState({'lastName': event.targert.value})} />
+                  value={lastName} onChange={e => this.setState(byPropKeys('lastName', e.target.value))} />
               </div>
               <div className="form-group row">
                 <input className="form-control" type="password" placeholder="Enter Password"
-                  value={password} onChange={this.setState({'password': event.targert.value})} />
+                  value={password} onChange={e => this.setState(byPropKeys('password', e.target.value))} />
               </div>
               <div className="form-group row">
                 <input className="form-control" type="password" placeholder="Repeat Password"
-                  value={repeatPassword} onChange={this.setState({'repeatPassword': event.targert.value})}/>
+                  value={repeatPassword} onChange={e => this.setState(byPropKeys('repeatPassword', e.target.value))}/>
               </div>
               <div className="form-group row">
-                <div id="signupCfrm" className="btn btn-primary" type="submit">Confirm</div>
+                <button id="signupCfrm" className="btn btn-primary" type="submit">Confirm</button>
               </div>
             </form>
           </div>
