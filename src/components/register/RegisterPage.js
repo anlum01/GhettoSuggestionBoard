@@ -1,5 +1,6 @@
 import React from 'react';
 import { auth } from '../../firebase/firebase';
+import { Link, browserHistory } from 'react-router';
 import './RegisterPage.css';
 
 const byPropKeys = (propertyName, value) => ({
@@ -39,6 +40,10 @@ class RegisterPage extends React.Component {
     )
     .catch( error => this.setState({error}));
 
+  }
+
+  handleGoHome(){
+    browserHistory.push('/home');
   }
 
 
@@ -85,6 +90,7 @@ class RegisterPage extends React.Component {
           </div>
         </div>
       </div>
+      <div id="snackbar">Registration Success</div>
     </div>
     );
   }

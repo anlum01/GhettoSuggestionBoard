@@ -15,31 +15,38 @@ class Board extends React.Component{
     //Load default as test
     testload(){
         return(
-        <div>
-        <h1>test load</h1>
-        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
-
+            <div>
+                <h1>test load</h1>
                 <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
-        str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
-        </div>
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                                    <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+                    str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
+                    
+            </div>
         )
     }
 

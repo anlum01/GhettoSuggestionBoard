@@ -13,6 +13,7 @@ import Board from './components/board/Board';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
+    <Route path='home' component = {HomePage}/>
     <Route path="signup" component={RegisterPage} />
     <Route path="courses" component={CoursesPage} />
     <Route path="course" component={ManageCoursePage} />

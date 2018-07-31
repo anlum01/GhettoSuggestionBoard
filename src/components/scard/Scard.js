@@ -13,7 +13,6 @@ class Scard extends React.Component{
         //Default states
         super(props);
 
-        this.console.log("hello inside ctor");
         this.state = {
             str_card_img_url:this.props.str_card_img_url,
             str_card_title:this.props.str_card_title,
@@ -22,8 +21,6 @@ class Scard extends React.Component{
             int_downvote:this.props.int_downvote
         };
 
-        this.console.log("setted states")
-        this.console.log(this.state.int_upvote);
         //Bind functions to the Component
         this.handleUp = this.handleUp.bind(this);
         this.handleDown = this.handleDown.bind(this);
@@ -43,12 +40,10 @@ class Scard extends React.Component{
 
     //This function renders the suggestion card component
     render(){
-        this.console.log(this.state.str_card_title);
-        this.console.log(this.props);
         let str1 = "Yes " + this.state.int_upvote;
         let str2 = "No " + this.state.int_downvote;
         return (
-            <div>
+            <div className="outsideCard">
                 <Card>
                     <CardImg top width="100%" src={this.state.str_card_img_url}/>
                     <CardBody>

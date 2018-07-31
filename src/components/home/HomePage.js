@@ -1,7 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 import './HomePage.css';
+
 
 class HomePage extends React.Component {
   render() {
