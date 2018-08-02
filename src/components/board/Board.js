@@ -8,8 +8,8 @@ const defaultCard = {
     "str_card_title": "Title",
     "str_card_text": "The quick brown fox jumped over the lazy dog",
     "int_upvote": 0,
-    "int_downvote": 0   
-}
+    "int_downvote": 0
+};
 
 class Board extends React.Component{
     //Load default as test
@@ -20,7 +20,7 @@ class Board extends React.Component{
         <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
         str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
 
-                <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
+        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
         str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
         str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
         str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
@@ -40,12 +40,12 @@ class Board extends React.Component{
         str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>        <Scard str_card_img_url={defaultCard.str_card_img_url} str_card_title={defaultCard.str_card_title}
         str_card_text={defaultCard.str_card_text} int_upvote={defaultCard.int_upvote} int_downvote={defaultCard.int_downvote}/>
         </div>
-        )
+      );
     }
 
     //Renderer
     render(){
-        var test = this.testload();
+        let test = this.testload();
         return(
             <div>
                 {test}

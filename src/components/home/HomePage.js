@@ -1,9 +1,38 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, withRouter} from 'react-router';
+import { Col, Row, Button, Label } from 'reactstrap';
+import { LocalForm, Errors, Control } from 'react-redux-form';
+import { auth } from '../../firebase/firebase';
 
 import './HomePage.css';
 
 class HomePage extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  onSubmit(fields) {
+    const {
+      email,
+      password
+    } = fields;
+
+    auth.signInWithEmailAndPassword(email, password).then(
+      authUser => {
+      }
+
+    )
+    .catch(
+      error => {
+        this.console.log(error);
+      }
+    );
+
+    this.props.history.push("board");
+
+  }
+
   render() {
     return (
       <div className="jumbotron">
@@ -17,28 +46,27 @@ class HomePage extends React.Component {
 
             <div className="col-12 col-sm-6" id="login-box">
 
-              <form>
-                <div className="form-group row">
-                  <label className="col-sm-2 col-form-label">Email</label>
-                  <input className="form-control" type="email" placeholder="Email" />
-                </div>
-                <div className="form-group row">
-                  <label className="col-sm-2 col-form-label">Password</label>
-                  <input className="form-control" type="password" placeholder="Password" />
-                </div>
-              </form>
+              <LocalForm onSubmit={(fields) => this.onSubmit(fields)}>
+                <Row className="form-group">
+                  <Label className="col-sm-2 col-form-label" htmlFor="email">Email</Label>
+                  <Control.text className="form-control" model=".email" type="email" name="email" placeholder="Email" />
+                </Row>
+                <Row className="form-group">
+                  <Label className="col-sm-2 col-form-label" htmlFor="password">Password</Label>
+                  <Control.text className="form-control" model=".password" type="password" name="password" placeholder="Password" />
+                </Row>
+                <Row className="form-group justify-content-end">
+                  <div className="col-6 col-sm-5">
+                    <Link to="signup" id="singupBtn" className="btn btn-primary btn-medium">Signup</Link>
+                  </div>
+                  <div className="col-6 offset-sm-2 col-sm-5">
+                    <Button id="loginBtn" className="btn btn-primary btn-medium" type="submit">Login</Button>
+                  </div>
+                </Row>
 
-              <div className="form-group row justify-content-end">
-                <div className="col-6 col-sm-5">
-                  <Link to="signup" id="singupBtn" className="btn btn-primary btn-medium">Signup</Link>
-                </div>
-                <div className="col-6 offset-sm-2 col-sm-5">
-                  <div id="loginBtn" className="btn btn-primary btn-medium">Login</div>
-                </div>
-              </div>
+            </LocalForm>
 
             </div>
-
           </div>
         </div>
       </div>

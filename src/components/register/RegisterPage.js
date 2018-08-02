@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row, Button } from 'reactstrap';
+import { withRouter } from 'react-router';
 import { Control, Errors, LocalForm } from 'react-redux-form';
 import { auth } from '../../firebase/firebase';
 import './RegisterPage.css';
@@ -22,13 +23,16 @@ class RegisterPage extends React.Component {
       password
     } = fields;
 
-    auth.createUserWithEmailAndPassword(fields.email, fields.password).then(
-      authUser => {}
+    auth.createUserWithEmailAndPassword(email, password).then(
+      authUser => {
+        //create token and put in local store
+      }
     )
     .catch( (error) => this.console.log(error) );
 
-  }
+    this.context.push.router("board");
 
+  }
 
   render() {
 
@@ -100,4 +104,5 @@ class RegisterPage extends React.Component {
   }
 }
 
-export default RegisterPage;
+
+export default withRouter(RegisterPage);
