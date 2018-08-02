@@ -1,4 +1,6 @@
 import React from 'react';
+import { Col, Row, Button } from 'reactstrap';
+import { Control, Errors, LocalForm } from 'react-redux-form';
 import { auth } from '../../firebase/firebase';
 import './RegisterPage.css';
 
@@ -6,28 +8,18 @@ const byPropKeys = (propertyName, value) => ({
   [propertyName]: value
 });
 
+const required = (field) => field && field.length;
 
 class RegisterPage extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      email: '',
-      firstName: '',
-      lastName: '',
-      password: '',
-      repeatPassword: '',
-      error: null
-    };
-
     this.onSubmit = this.onSubmit.bind(this);
 
   }
 
   onSubmit(event) {
-
-    event.preventDefault();
 
     const {
       email,
@@ -44,44 +36,66 @@ class RegisterPage extends React.Component {
 
   render() {
 
-    const {
-      email,
-      firstName,
-      lastName,
-      password,
-      repeatPassword
-    } = this.state;
-
     return (
     <div className="jumbotron">
       <div className="container">
         <div className="row">
           <div className="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6">
-            <form onSubmit={this.onSubmit}>
-              <div className="form-group row">
-                <input className="form-control" type="email" placeholder="Enter Email"
-                  value={email} onChange={e => this.setState(byPropKeys('email', e.target.value))} />
-              </div>
-              <div className="form-group row">
-                <input className="form-control" type="text" placeholder="First Name"
-                  value={firstName} onChange={e => this.setState(byPropKeys('firstName', e.target.value))} />
-              </div>
-              <div className="form-group row">
-                <input className="form-control" type="text" placeholder="Last Name"
-                  value={lastName} onChange={e => this.setState(byPropKeys('lastName', e.target.value))} />
-              </div>
-              <div className="form-group row">
-                <input className="form-control" type="password" placeholder="Enter Password"
-                  value={password} onChange={e => this.setState(byPropKeys('password', e.target.value))} />
-              </div>
-              <div className="form-group row">
-                <input className="form-control" type="password" placeholder="Repeat Password"
-                  value={repeatPassword} onChange={e => this.setState(byPropKeys('repeatPassword', e.target.value))}/>
-              </div>
-              <div className="form-group row">
-                <button id="signupCfrm" className="btn btn-primary" type="submit">Confirm</button>
-              </div>
-            </form>
+            <LocalForm onSubmit={(values) => this.onSubmit(values)}>
+              <Row className="form-group">
+                <Control.text className="form-control" model=".email" type="email" placeholder="Enter Email"
+                  validators={{
+                    required
+                  }} />
+                <Errors className="text-danger" model=".email" show="touched"
+                  messages={{
+                    required: 'Required'
+                  }} />
+              </Row>
+              <Row className="form-group">
+                <Control.text className="form-control" model=".firstname" type="text" placeholder="First Name"
+                  validators={{
+                    required: 'Required'
+                  }} />
+                <Errors className="text-danger" model=".email" show="touched"
+                    messages={{
+                      required: 'Required'
+                 }} />
+              </Row>
+              <Row className="form-group">
+                <Control.text className="form-control" model=".lastname" type="text" placeholder="Last Name"
+                  validators={{
+                    required: 'Required'
+                  }} />
+                  <Errors className="text-danger" model=".email" show="touched"
+                    messages={{
+                      required: 'Required'
+                    }} />
+              </Row>
+              <Row className="form-group">
+                <Control.text className="form-control" model=".password" type="password" placeholder="Enter Password"
+                  validators={{
+                    required: 'Required'
+                  }} />
+                  <Errors className="text-danger" model=".email" show="touched"
+                    messages={{
+                      required: 'Required'
+                    }} />
+              </Row>
+              <Row className="form-group">
+                <Control.text className="form-control" model=".repeatPassword" type="password" placeholder="Repeat Password"
+                  validators={{
+                    required: 'Required'
+                  }} />
+                <Errors className="text-danger" model=".email" show="touched"
+                    messages={{
+                      required: 'Required'
+                  }} />
+              </Row>
+              <Row className="form-group">
+                <Button id="signupCfrm" className="btn btn-primary" type="submit">Confirm</Button>
+              </Row>
+            </LocalForm>
           </div>
         </div>
       </div>
