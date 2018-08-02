@@ -4,11 +4,8 @@ import { Control, Errors, LocalForm } from 'react-redux-form';
 import { auth } from '../../firebase/firebase';
 import './RegisterPage.css';
 
-const byPropKeys = (propertyName, value) => ({
-  [propertyName]: value
-});
-
 const required = (field) => field && field.length;
+const password = (field) => field === this.state.password;
 
 class RegisterPage extends React.Component {
 
@@ -16,20 +13,19 @@ class RegisterPage extends React.Component {
     super(props);
 
     this.onSubmit = this.onSubmit.bind(this);
-
   }
 
-  onSubmit(event) {
+  onSubmit(fields) {
 
     const {
       email,
       password
-    } = this.state;
+    } = fields;
 
-    auth.createUserWithEmailAndPassword(email, password).then(
+    auth.createUserWithEmailAndPassword(fields.email, fields.password).then(
       authUser => {}
     )
-    .catch( error => this.setState({error}));
+    .catch( (error) => this.console.log(error) );
 
   }
 
@@ -41,9 +37,9 @@ class RegisterPage extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6">
-            <LocalForm onSubmit={(values) => this.onSubmit(values)}>
+            <LocalForm onSubmit={(fields) => this.onSubmit(fields)}>
               <Row className="form-group">
-                <Control.text className="form-control" model=".email" type="email" placeholder="Enter Email"
+                <Control.text className="form-control" model=".email" type="email" placeholder="Enter Email" name="email"
                   validators={{
                     required
                   }} />
@@ -53,41 +49,41 @@ class RegisterPage extends React.Component {
                   }} />
               </Row>
               <Row className="form-group">
-                <Control.text className="form-control" model=".firstname" type="text" placeholder="First Name"
+                <Control.text className="form-control" model=".firstname" type="text" placeholder="First Name" name="firstname"
                   validators={{
-                    required: 'Required'
+                    required
                   }} />
-                <Errors className="text-danger" model=".email" show="touched"
+                <Errors className="text-danger" model=".firstname" show="touched"
                     messages={{
                       required: 'Required'
                  }} />
               </Row>
               <Row className="form-group">
-                <Control.text className="form-control" model=".lastname" type="text" placeholder="Last Name"
+                <Control.text className="form-control" model=".lastname" type="text" placeholder="Last Name" name="lastname"
                   validators={{
-                    required: 'Required'
+                    required
                   }} />
-                  <Errors className="text-danger" model=".email" show="touched"
+                <Errors className="text-danger" model=".lastname" show="touched"
                     messages={{
                       required: 'Required'
                     }} />
               </Row>
               <Row className="form-group">
-                <Control.text className="form-control" model=".password" type="password" placeholder="Enter Password"
+                <Control.input className="form-control" model=".password" type="password" placeholder="Enter Password" name="password"
                   validators={{
-                    required: 'Required'
+                    required
                   }} />
-                  <Errors className="text-danger" model=".email" show="touched"
+                <Errors className="text-danger" model=".password" show="touched"
                     messages={{
                       required: 'Required'
                     }} />
               </Row>
               <Row className="form-group">
-                <Control.text className="form-control" model=".repeatPassword" type="password" placeholder="Repeat Password"
+                <Control.input className="form-control" model=".repeatPassword" type="password" placeholder="Repeat Password" name="repeatPassword"
                   validators={{
-                    required: 'Required'
+                    required
                   }} />
-                <Errors className="text-danger" model=".email" show="touched"
+                <Errors className="text-danger" model=".repeatPassword" show="touched"
                     messages={{
                       required: 'Required'
                   }} />
