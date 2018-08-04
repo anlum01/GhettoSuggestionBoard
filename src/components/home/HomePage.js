@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Link, withRouter} from 'react-router';
 import { Col, Row, Button, Label } from 'reactstrap';
 import { LocalForm, Errors, Control } from 'react-redux-form';
@@ -18,8 +18,13 @@ class HomePage extends React.Component {
       password
     } = fields;
 
+    const {
+      history
+    } = this.props;
+
     auth.signInWithEmailAndPassword(email, password).then(
       authUser => {
+        history.push("board");
       }
 
     )
@@ -29,7 +34,6 @@ class HomePage extends React.Component {
       }
     );
 
-    this.props.history.push("board");
 
   }
 
@@ -73,5 +77,9 @@ class HomePage extends React.Component {
     );
   }
 }
+
+HomePage.propTypes = {
+  history: PropTypes.object.isRequired
+};
 
 export default HomePage;

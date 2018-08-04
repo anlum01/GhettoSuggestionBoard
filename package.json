@@ -28,7 +28,7 @@
     "react-dom": "^15.6.2",
     "react-redux": "4.4.5",
     "react-redux-form": "^1.16.9",
-    "react-router": "2.4.0",
+    "react-router": "^2.8.1",
     "react-router-redux": "4.0.4",
     "reactstrap": "^6.3.0",
     "redux": "3.5.2",

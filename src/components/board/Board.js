@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'reactstrap';
-import {Link,browserHistory} from 'react-router';
+import {Link,browserHistory,withRouter} from 'react-router';
 import Scard from '../scard/Scard.js';
 
 const defaultCard = {
@@ -48,11 +48,11 @@ class Board extends React.Component{
         let test = this.testload();
         return(
             <div>
-                {test}
+                <h1>TESTING</h1>
                 <Button onClick={this.handleAdd}>Edit or Add</Button>
             </div>
         );
     }
 }
 
-export default Board;
+export default withRouter(Board);

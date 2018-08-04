@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Col, Row, Button } from 'reactstrap';
 import { withRouter } from 'react-router';
 import { Control, Errors, LocalForm } from 'react-redux-form';
@@ -23,14 +23,16 @@ class RegisterPage extends React.Component {
       password
     } = fields;
 
-    auth.createUserWithEmailAndPassword(email, password).then(
-      authUser => {
-        //create token and put in local store
-      }
-    )
-    .catch( (error) => this.console.log(error) );
+    const {
+      history
+    } = this.props;
 
-    this.context.push.router("board");
+    auth.createUserWithEmailAndPassword(email, password).then(
+      (authUser) => {
+        //create token and put in local store
+        history.push("board");
+      }
+    ).catch( );
 
   }
 
@@ -104,5 +106,8 @@ class RegisterPage extends React.Component {
   }
 }
 
+RegisterPage.PropTypes = {
+  history: PropTypes.object.isRequired
+};
 
 export default withRouter(RegisterPage);
