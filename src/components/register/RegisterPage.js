@@ -3,6 +3,7 @@ import { Col, Row, Button } from 'reactstrap';
 import { withRouter } from 'react-router';
 import { Control, Errors, LocalForm } from 'react-redux-form';
 import { auth } from '../../firebase/firebase';
+import firebase from 'firebase';
 import './RegisterPage.css';
 
 const required = (field) => field && field.length;
@@ -20,21 +21,38 @@ class RegisterPage extends React.Component {
 
     const {
       email,
-      password
+      password,
+      firstname,
+      lastname
     } = fields;
 
     const {
       history
     } = this.props;
 
+    const error = null;
+
     auth.createUserWithEmailAndPassword(email, password).then(
       (authUser) => {
-        //create token and put in local store
-        history.push("board");
-      }
-    ).catch( );
+        //create token and put in local store for session purposes
+        authUser = auth.currentUser;
+        //history.push("board");
+        let userRef = firebase.database().ref(`/Users/${authUser.uid}`);
+
+        console.log(`/Users/${authUser.uid}`);
+
+        const userInfo = {
+          email: authUser.email,
+          firstname: firstname,
+          lastname: lastname
+        };
+
+        userRef.set(userInfo);
+      }, (error) => this.err = error
+    ).catch( (error) => this.err = error );
 
   }
+
 
   render() {
 
@@ -106,7 +124,7 @@ class RegisterPage extends React.Component {
   }
 }
 
-RegisterPage.PropTypes = {
+RegisterPage.propTypes = {
   history: PropTypes.object.isRequired
 };
 
