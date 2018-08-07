@@ -1,7 +1,11 @@
 import React, {PropTypes} from 'react';
+import { bindActionCreators } from 'redux';
 import {Link, withRouter} from 'react-router';
-import { Col, Row, Button, Label } from 'reactstrap';
+import { connect} from 'react-redux';
+import { Col, Row, Button, Label, Alert } from 'reactstrap';
 import { LocalForm, Errors, Control } from 'react-redux-form';
+
+import * as userActions from '../../actions/userActions';
 import { auth } from '../../firebase/firebase';
 
 import './HomePage.css';
@@ -24,11 +28,9 @@ class HomePage extends React.Component {
 
     auth.signInWithEmailAndPassword(email, password).then(
       authUser => {
-        history.push("board");
+        history.push("/board");
       }
-
-    )
-    .catch(
+    ).catch(
       error => {
         this.console.log(error);
       }
@@ -37,8 +39,18 @@ class HomePage extends React.Component {
 
   }
 
+  createAlert() {
+      return(
+          <Alert color="danger">
+            Login failed. Email or password incorrect.
+          </Alert>
+      );
+  }
+
   render() {
     return (
+    <div>
+      <div></div>
       <div className="jumbotron">
         <div className="container justify-content-center">
           <div className="row align-items-center">
@@ -74,6 +86,7 @@ class HomePage extends React.Component {
           </div>
         </div>
       </div>
+    </div>
     );
   }
 }
@@ -82,4 +95,11 @@ HomePage.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-export default HomePage;
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(userActions, dispatch)
+  };
+};
+
+
+export default withRouter(connect(mapDispatchToProps)(HomePage));

@@ -15,7 +15,7 @@ class Scard extends React.Component{
 
         this.console.log("hello inside ctor");
         this.state = {
-            str_card_img_url:this.props.str_card_img_url,
+            str_card_img_url: this.props.str_card_img_url,
             str_card_title:this.props.str_card_title,
             str_card_text:this.props.str_card_text,
             int_upvote:this.props.int_upvote,

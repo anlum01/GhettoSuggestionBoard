@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Col, Row, Button } from 'reactstrap';
 import { withRouter } from 'react-router';
 import { Control, Errors, LocalForm } from 'react-redux-form';
+
 import { auth } from '../../firebase/firebase';
 import firebase from 'firebase';
 import './RegisterPage.css';
@@ -30,7 +32,7 @@ class RegisterPage extends React.Component {
       history
     } = this.props;
 
-    const error = null;
+    const err = null;
 
     auth.createUserWithEmailAndPassword(email, password).then(
       (authUser) => {
@@ -39,20 +41,19 @@ class RegisterPage extends React.Component {
         //history.push("board");
         let userRef = firebase.database().ref(`/Users/${authUser.uid}`);
 
-        console.log(`/Users/${authUser.uid}`);
-
         const userInfo = {
-          email: authUser.email,
+          email: email,
           firstname: firstname,
           lastname: lastname
         };
 
         userRef.set(userInfo);
+
+        history.push("board");
       }, (error) => this.err = error
     ).catch( (error) => this.err = error );
 
   }
-
 
   render() {
 
@@ -124,8 +125,13 @@ class RegisterPage extends React.Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+  };
+};
+
 RegisterPage.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-export default withRouter(RegisterPage);
+export default withRouter(connect(mapDispatchToProps)(RegisterPage));

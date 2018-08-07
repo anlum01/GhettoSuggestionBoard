@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Nav, Navbar, NavbarBrand, NavbarToggler } from 'reactstrap';
+
 import { auth } from '../../firebase/firebase';
 
 class HomeHeader extends Component {
@@ -13,7 +15,11 @@ class HomeHeader extends Component {
 
   render() {
     return(
-      <div></div>
+      <div>
+        <Navbar color="light">
+          <NavbarBrand href="/board">Ghetto Suggestions Board</NavbarBrand>
+        </Navbar>
+      </div>
     );
   }
 
