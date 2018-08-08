@@ -1,20 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { Redirect, Route } from 'react-router';
 
-const PrivateRoute = ( {Component, ...rest} ) => {
+const PrivateRoute = ( {component: Component, loggedIn, ...rest} ) => {
 
-  const loggedIn = false;
-
-  return(<Route
-    {...rest}
-    render={props => loggedIn ?
-      (<Component {...props}/>) : (<Redirect to={{ pathname: "home"}}/>)
-    }
-    />);
+  return(<Route {...rest}
+    render={(props) => loggedIn === true ?
+      (<Component {...props} />) : (<Redirect to={{path: "about"}} />)
+    } />);
 };
 
-PrivateRoute.propTypes = {
-  Component: PropTypes.isRequired
-};
 
 export default PrivateRoute;

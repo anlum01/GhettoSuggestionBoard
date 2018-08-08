@@ -9,5 +9,6 @@ export default {
     lastname: ''
   },
 
+  isAuthenticated: false,
   invalidCredentialsAlert: false
 };

@@ -1,7 +1,9 @@
 import React from 'react';
 import {Button} from 'reactstrap';
 import {Link,browserHistory,withRouter} from 'react-router';
+
 import Scard from '../scard/Scard';
+import PrivateRoute from '../private/PrivateRoute';
 
 const defaultCard = {
     "str_card_img_url": "https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180",

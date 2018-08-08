@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import { bindActionCreators } from 'redux';
-import {Link, withRouter} from 'react-router';
+import {Link, withRouter, browserHistory} from 'react-router';
 import { connect} from 'react-redux';
 import { Col, Row, Button, Label, Alert } from 'reactstrap';
 import { LocalForm, Errors, Control } from 'react-redux-form';
@@ -14,6 +14,8 @@ class HomePage extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.navigateRegisterPage = this.navigateRegisterPage.bind(this);
   }
 
   onSubmit(fields) {
@@ -36,7 +38,6 @@ class HomePage extends React.Component {
       }
     );
 
-
   }
 
   createAlert() {
@@ -45,6 +46,10 @@ class HomePage extends React.Component {
             Login failed. Email or password incorrect.
           </Alert>
       );
+  }
+
+  navigateRegisterPage() {
+    browserHistory.push("/signup");
   }
 
   render() {
@@ -73,7 +78,7 @@ class HomePage extends React.Component {
                 </Row>
                 <Row className="form-group justify-content-end">
                   <div className="col-6 col-sm-5">
-                    <Link to="signup" id="singupBtn" className="btn btn-primary btn-medium">Signup</Link>
+                    <Button id="singupBtn" className="btn btn-primary btn-medium" type="button" onClick={this.navigateRegisterPage}>Signup</Button>
                   </div>
                   <div className="col-6 offset-sm-2 col-sm-5">
                     <Button id="loginBtn" className="btn btn-primary btn-medium" type="submit">Login</Button>
