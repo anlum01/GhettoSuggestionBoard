@@ -77,7 +77,6 @@
     "webpack-hot-middleware": "2.10.0"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/coryhouse/pluralsight-redux-starter"
+    "type": "git"
   }
 }

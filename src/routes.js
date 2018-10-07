@@ -14,11 +14,11 @@ import PlaceholderComponent from './components/placeholder/PlaceholderComponent'
 
 export default (
   <Switch>
-    <Route path="/" component={HomePage} />
-    <Route path="signup" component={RegisterPage} />
-    <Route path="courses" component={CoursesPage} />
-    <Route exact path="course" component={ManageCoursePage} />
-    <Route path="course/:id" component={ManageCoursePage} />
-    <Route path="about" component={AboutPage} />
+    <Route exact path="/" component={HomePage} />
+    <Route path="/signup" component={RegisterPage} />
+    <Route path="/courses" component={CoursesPage} />
+    <Route exact path="/course" component={ManageCoursePage} />
+    <Route path="/course/:id" component={ManageCoursePage} />
+    <Route path="/about" component={AboutPage} />
   </Switch>
 );
