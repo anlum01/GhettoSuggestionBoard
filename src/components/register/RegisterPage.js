@@ -134,4 +134,4 @@ RegisterPage.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-export default withRouter(connect(mapDispatchToProps)(RegisterPage));
+export default connect(mapDispatchToProps)(RegisterPage);
