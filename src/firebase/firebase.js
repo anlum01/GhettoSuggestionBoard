@@ -10,6 +10,11 @@ const config = {
   messagingSenderId: "812077124491"
 };
 
+export const rrfConfig = {
+  UserProfile: 'Users',
+  enableLogging: false
+};
+
 firebase.initializeApp(config);
 
 const auth = firebase.auth();

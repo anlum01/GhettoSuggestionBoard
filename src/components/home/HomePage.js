@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import { bindActionCreators } from 'redux';
 import { Link, withRouter } from 'react-router-dom';
 import { connect} from 'react-redux';
+import { withFirebase } from 'react-redux-firebase';
 import { Col, Row, Button, Label, Alert } from 'reactstrap';
 import { LocalForm, Errors, Control } from 'react-redux-form';
 

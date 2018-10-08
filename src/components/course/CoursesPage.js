@@ -16,7 +16,7 @@ class CoursesPage extends React.Component {
   }
 
   redirectToAddCoursePage() {
-    browserHistory.push('/course');
+    this.props.history.push('/course');
   }
 
   render() {
@@ -37,7 +37,8 @@ class CoursesPage extends React.Component {
 
 CoursesPage.propTypes = {
   courses: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
