@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Col, Row, Button } from 'reactstrap';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { Control, Errors, LocalForm } from 'react-redux-form';
 
 import { auth } from '../../firebase/firebase';
@@ -134,4 +134,4 @@ RegisterPage.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-export default withRouter(connect(mapDispatchToProps)(RegisterPage));
+export default withRouter(RegisterPage);

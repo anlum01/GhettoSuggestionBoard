@@ -1,16 +1,17 @@
-import React, {PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import { bindActionCreators } from 'redux';
-import {Link, withRouter, browserHistory} from 'react-router';
+import { Link, withRouter } from 'react-router-dom';
 import { connect} from 'react-redux';
+import { withFirebase } from 'react-redux-firebase';
 import { Col, Row, Button, Label, Alert } from 'reactstrap';
 import { LocalForm, Errors, Control } from 'react-redux-form';
 
-import * as userActions from '../../actions/userActions';
+//import * as userActions from '../../actions/userActions';
 import { auth } from '../../firebase/firebase';
 
 import './HomePage.css';
 
-class HomePage extends React.Component {
+class HomePage extends Component {
 
   constructor(props) {
     super(props);
@@ -24,13 +25,9 @@ class HomePage extends React.Component {
       password
     } = fields;
 
-    const {
-      history
-    } = this.props;
-
     auth.signInWithEmailAndPassword(email, password).then(
       authUser => {
-        history.push("/board");
+        this.props.history.push("/board");
       }
     ).catch(
       error => {
@@ -49,7 +46,7 @@ class HomePage extends React.Component {
   }
 
   navigateRegisterPage() {
-    browserHistory.push("/signup");
+    this.props.history.push("/signup");
   }
 
   render() {
@@ -100,11 +97,5 @@ HomePage.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators(userActions, dispatch)
-  };
-};
 
-
-export default withRouter(connect(mapDispatchToProps)(HomePage));
+export default withRouter(HomePage);
