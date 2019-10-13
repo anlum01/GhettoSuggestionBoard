@@ -1,13 +1,17 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import dotenv from 'dotenv';
+import path from 'path';
+
+const res = dotenv.config();
 
 const config = {
-  apiKey: "AIzaSyDEvmze0TnUUZRWwvrbz9dt2aUGsIAjeu4",
-  authDomain: "suggestionsboard-2d9ab.firebaseapp.com",
-  databaseURL: "https://suggestionsboard-2d9ab.firebaseio.com",
-  projectId: "suggestionsboard-2d9ab",
-  storageBucket: "suggestionsboard-2d9ab.appspot.com",
-  messagingSenderId: "812077124491"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DB_URL,
+  projectId: process.env.PROJ_ID,
+  storageBucket: process.env.BUCKET,
+  messagingSenderId: process.env.SENDER_ID
 };
 
 export const rrfConfig = {

@@ -5,6 +5,9 @@ export default {
   debug: true,
   devtool: 'cheap-module-eval-source-map',
   noInfo: false,
+  node: {
+    fs: "empty"
+  },
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
