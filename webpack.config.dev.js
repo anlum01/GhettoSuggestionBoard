@@ -1,12 +1,13 @@
 import webpack from 'webpack';
 import path from 'path';
+import Dotenv from 'dotenv-webpack';
 
 export default {
   debug: true,
   devtool: 'cheap-module-eval-source-map',
   noInfo: false,
   node: {
-    fs: "empty"
+    fs: 'empty'
   },
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
@@ -24,7 +25,10 @@ export default {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new Dotenv({
+      path: './.env'
+    })
   ],
   module: {
     loaders: [

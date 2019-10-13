@@ -6,7 +6,7 @@ import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import routes from './routes';
-//import {} from 'dotenv/config';
+
 import {loadCourses} from './actions/courseActions';
 import {loadAuthors} from './actions/authorActions';
 import './styles/styles.css'; //Webpack can import CSS files too!
