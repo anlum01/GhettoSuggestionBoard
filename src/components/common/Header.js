@@ -5,7 +5,7 @@ import { NavLink, IndexLink } from 'react-router-dom';
 const Header = ({loading}) => {
   return (
     <nav>
-      <NavLink to="/" activeClassName="active">Home</NavLink>
+      <NavLink exact to="/" activeClassName="active">Home</NavLink>
       {" | "}
       <NavLink to="/about" activeClassName="active">About</NavLink>
     </nav>
